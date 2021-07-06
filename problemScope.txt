@@ -1,0 +1,49 @@
+Prize Bounty
+A winning hackathon submission may be awarded up to a $6,000 prize for this issue. The prize will be paid in USDC.
+
+Bounties will be paid out at the discretion of the judges exclusively and we reserve the right to not give a bounty payment if we believe the submissions do not meet the criteria or are otherwise unfit for development.
+
+Challenge Description
+To improve UX of MemeFactory, user addresses throughout the app should reverse-resolve into ENS names, if any assigned.
+
+First, let's look at all places in UI where addresses should be replaced with ENS names:
+
+1. Address of a connected wallet. Code reference here.
+
+
+2. Seller address, when flipping meme card that's on sale. Code reference here.
+
+
+3. Creator address at Meme Detail page. Code reference here.
+
+
+4. Creator and Challenger addresses at Vote/Challenge pages. Code reference here.
+
+
+5. Creator address on flipped card at Dankest Memes page. Code reference here.
+
+
+6. Addresses at Creator, Collectors, Curators pages. Code references here, here and here.
+
+
+7. MemeFolio Page. It should say "[ENS Name] Memefolio". Code reference here.
+
+
+8. Buyer address at Memefolio page Sold tab. Code reference here.
+
+
+I suggest implementation as follows: On each of these places replace address with new reagent component (e.g ens-resolved-address). This component will use lifecycle method :component-did-mount, from which it'll dispatch re-frame event to request ENS name from ReverseRegistrar for given address. Once resolved name arrives, it's stored in re-frame db and through the subscriptions it's supplied to the components. UI should always display address as a fallback, either during ENS name request processing or if ENS name is not available.
+
+Submission Requirements
+Submissions are required to make Pull Request into Memefactory repository. Pull Request should include brief description about what has been done plus screenshots of relevant Memefactory UI.
+
+Judging Criteria
+district0x team members will pick 1 winning implementation, that satisfies our requirements the most. Aspects considered during the judgement are: functionality, UI styling and code quality.
+
+Winner Announcement Date
+The district0x team will decide on a winning implementation within 7 days of the close of the hackathon. Winners will be announced by 11:59PM PST on Wednesday, July 14th.
+
+Resources
+To reach our assistance please join our discord at https://discord.gg/FqWuPSEY
+
+For more information on the district0x project, start with https://onboarding.district0x.io/
